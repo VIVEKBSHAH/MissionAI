@@ -3,7 +3,6 @@ function downloadCertificate() {
     const player = localStorage.getItem("playerName") || "Commander";
     const score = parseInt(localStorage.getItem("score")) || 0;
 
-
     let title = "";
 
     if (score === 5)
@@ -23,28 +22,34 @@ function downloadCertificate() {
     });
 
 
-
     const div = document.createElement("div");
 
 
-    div.style.width = "1000px";
-    div.style.height = "700px";
-    div.style.background = "linear-gradient(135deg,#071320,#10253f)";
+    div.style.width = "1200px";
+    div.style.height = "850px";
+    div.style.background = "linear-gradient(120deg,#071320,#172b4d)";
     div.style.color = "white";
-    div.style.padding = "30px";
     div.style.fontFamily = "Poppins, Arial, sans-serif";
     div.style.textAlign = "center";
-    div.style.border = "8px solid #FFD700";
+    div.style.border = "12px solid #FFD700";
     div.style.boxSizing = "border-box";
-
+    div.style.padding = "55px";
+    div.style.position = "relative";
 
 
     div.innerHTML = `
 
+<div style="
+border:2px solid rgba(255,215,0,0.5);
+height:100%;
+padding:35px;
+box-sizing:border-box;
+">
+
 
 <h1 style="
-font-size:55px;
-letter-spacing:8px;
+font-size:70px;
+letter-spacing:12px;
 margin:0;
 color:#38bdf8;
 ">
@@ -53,16 +58,18 @@ MISSION AI
 
 
 <h2 style="
-font-size:30px;
-margin:10px 0 15px;
+font-size:38px;
+margin:15px 0;
+color:#ffffff;
 ">
-Certificate of Achievement
+CERTIFICATE OF ACHIEVEMENT
 </h2>
 
 
+
 <p style="
-font-size:18px;
-margin:0;
+font-size:22px;
+margin-top:35px;
 ">
 This certificate is proudly presented to
 </p>
@@ -70,9 +77,9 @@ This certificate is proudly presented to
 
 
 <h1 style="
-font-size:42px;
-color:#ffffff;
-margin:12px 0;
+font-size:55px;
+margin:15px 0;
+color:#FFD700;
 font-weight:bold;
 ">
 ${player}
@@ -81,30 +88,30 @@ ${player}
 
 
 <p style="
-font-size:17px;
-margin:5px;
+font-size:22px;
 ">
-for successfully completing
+for successfully completing the
 </p>
 
 
 
 <h2 style="
-font-size:26px;
+font-size:32px;
 color:#38bdf8;
-margin:10px;
+margin:12px;
 ">
-Operations driven by AI
+AI Operations Mission Challenge
 </h2>
+
 
 
 
 <div style="
 display:flex;
 justify-content:center;
-gap:100px;
-margin-top:18px;
-font-size:20px;
+gap:120px;
+margin-top:35px;
+font-size:24px;
 ">
 
 
@@ -126,43 +133,57 @@ ${title}
 
 
 
-<hr style="
-width:80%;
-margin:22px auto;
-border:none;
-border-top:2px solid rgba(255,215,0,0.4);
-">
-
-
-
-<p style="
-font-size:17px;
-color:#38bdf8;
-font-weight:bold;
-margin:8px;
-">
-🏆 Excellence in AI-Driven Decision Making
-</p>
-
-
 <div style="
-margin-top:8px;
-font-size:15px;
+margin-top:45px;
+font-size:20px;
 color:#cbd5e1;
-line-height:1.5;
 ">
+
+
+🏆 Excellence in AI-Driven Decision Making
+
+
+<br><br>
+
 
 <b>
 Mission AI Leadership Challenge 2025
 </b>
 
+
 <br>
 
-Held on: ${date}
+
+Location: Kolkata
+
+
+<br>
+
+
+Issued Date: ${date}
+
 
 </div>
 
 
+
+
+<div style="
+position:absolute;
+bottom:35px;
+left:0;
+right:0;
+font-size:18px;
+color:#cbd5e1;
+">
+
+Presented by: Mission AI Team
+
+</div>
+
+
+
+</div>
 
 `;
 
@@ -172,7 +193,9 @@ Held on: ${date}
 
 
 
-    html2canvas(div).then(canvas => {
+    html2canvas(div, {
+        scale: 2
+    }).then(canvas => {
 
 
         const link = document.createElement("a");
