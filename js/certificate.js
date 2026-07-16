@@ -24,14 +24,13 @@ function downloadCertificate() {
 
     const div = document.createElement("div");
 
-
     div.style.width = "1200px";
     div.style.height = "850px";
-    div.style.background = "linear-gradient(120deg,#071320,#172b4d)";
-    div.style.color = "white";
-    div.style.fontFamily = "Poppins, Arial, sans-serif";
+    div.style.background = "#ffffff";
+    div.style.color = "#1f2937";
+    div.style.fontFamily = "Segoe UI, Arial, sans-serif";
     div.style.textAlign = "center";
-    div.style.border = "12px solid #FFD700";
+    div.style.border = "10px solid #1f6feb";
     div.style.boxSizing = "border-box";
     div.style.padding = "55px";
     div.style.position = "relative";
@@ -40,36 +39,37 @@ function downloadCertificate() {
     div.innerHTML = `
 
 <div style="
-border:2px solid rgba(255,215,0,0.5);
 height:100%;
-padding:35px;
+border:2px solid #d1d5db;
+padding:45px;
 box-sizing:border-box;
 ">
 
 
 <h1 style="
-font-size:70px;
-letter-spacing:12px;
+font-size:55px;
+letter-spacing:8px;
 margin:0;
-color:#38bdf8;
+color:#1f6feb;
+font-weight:700;
 ">
 MISSION AI
 </h1>
 
 
 <h2 style="
-font-size:38px;
-margin:15px 0;
-color:#ffffff;
+font-size:36px;
+margin:25px 0;
+color:#111827;
 ">
 CERTIFICATE OF ACHIEVEMENT
 </h2>
 
 
-
 <p style="
 font-size:22px;
-margin-top:35px;
+margin-top:45px;
+color:#4b5563;
 ">
 This certificate is proudly presented to
 </p>
@@ -77,10 +77,10 @@ This certificate is proudly presented to
 
 
 <h1 style="
-font-size:55px;
-margin:15px 0;
-color:#FFD700;
-font-weight:bold;
+font-size:58px;
+margin:20px 0;
+color:#111827;
+font-weight:700;
 ">
 ${player}
 </h1>
@@ -89,29 +89,29 @@ ${player}
 
 <p style="
 font-size:22px;
+color:#4b5563;
 ">
-for successfully completing the
+for successfully completing
 </p>
 
 
 
 <h2 style="
 font-size:32px;
-color:#38bdf8;
-margin:12px;
+color:#1f6feb;
+margin:15px;
 ">
 AI Operations Mission Challenge
 </h2>
 
 
 
-
 <div style="
 display:flex;
 justify-content:center;
-gap:120px;
-margin-top:35px;
-font-size:24px;
+gap:140px;
+margin-top:45px;
+font-size:22px;
 ">
 
 
@@ -133,38 +133,19 @@ ${title}
 
 
 
+
 <div style="
-margin-top:45px;
-font-size:20px;
-color:#cbd5e1;
+position:absolute;
+bottom:80px;
+left:0;
+right:0;
+font-size:18px;
+color:#4b5563;
 ">
-
-
-🏆 Excellence in AI-Driven Decision Making
-
-
-<br><br>
-
-
-<b>
-Mission AI Leadership Challenge 2025
-</b>
-
-
-<br>
-
-
-Location: Kolkata
-
-
-<br>
-
 
 Issued Date: ${date}
 
-
 </div>
-
 
 
 
@@ -174,7 +155,7 @@ bottom:35px;
 left:0;
 right:0;
 font-size:18px;
-color:#cbd5e1;
+color:#4b5563;
 ">
 
 Presented by: Mission AI Team
@@ -197,21 +178,15 @@ Presented by: Mission AI Team
         scale: 2
     }).then(canvas => {
 
-
         const link = document.createElement("a");
-
 
         link.download = "MissionAI_Certificate.png";
 
-
         link.href = canvas.toDataURL("image/png");
-
 
         link.click();
 
-
         div.remove();
-
 
     });
 
