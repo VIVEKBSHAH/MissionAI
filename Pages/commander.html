@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Commander Details</title>
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="../style.css">
+
+</head>
+
+<body>
+
+    <div class="background">
+
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="logo">
+
+            MISSION AI
+
+        </div>
+
+        <p class="subtitle">
+
+            Commander Registration
+
+        </p>
+
+        <div class="divider"></div>
+
+        <input
+            id="playerName"
+            type="text"
+            placeholder="Enter your Name"
+            maxlength="25">
+
+        <br><br>
+
+        <input
+            id="department"
+            type="text"
+            placeholder="Department (Optional)"
+            maxlength="30">
+
+        <br><br>
+
+        <button id="beginMission">
+
+            BEGIN MISSION 🚀
+
+        </button>
+
+    </div>
+
+<script>
+
+document.getElementById("beginMission").addEventListener("click",function(){
+
+let name=document.getElementById("playerName").value.trim();
+
+let department=document.getElementById("department").value.trim();
+
+if(name===""){
+
+alert("Please enter your name.");
+
+return;
+
+}
+
+localStorage.setItem("playerName",name);
+
+localStorage.setItem("department",department);
+
+localStorage.setItem("score",0);
+
+localStorage.setItem("currentQuestion",0);
+
+window.location.href="mission.html";
+
+});
+
+</script>
+
+</body>
+
+</html>

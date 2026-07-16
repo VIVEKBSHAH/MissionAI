@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mission Complete</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../style.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="background">
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
+</div>
+
+
+
+<div class="container">
+
+
+<div class="logo">
+
+MISSION COMPLETE
+
+</div>
+
+
+
+<h2 id="playerName">
+
+Commander
+
+</h2>
+
+
+
+<br>
+
+
+
+<h1 id="score">
+
+5 / 5
+
+</h1>
+
+
+
+<br>
+
+
+
+<h2 id="title">
+
+AI Operations Champion
+
+</h2>
+
+
+
+<br>
+
+
+
+<p id="message">
+
+Excellent leadership decisions!
+
+</p>
+
+
+
+<br><br>
+
+
+
+<div id="certificateArea">
+
+<button id="certificateBtn">
+
+🏆 Download Certificate
+
+</button>
+
+</div>
+
+
+
+<br><br>
+
+
+
+<button id="playAgainBtn">
+
+🔄 Play Again
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const score = parseInt(localStorage.getItem("score")) || 0;
+
+const name = localStorage.getItem("playerName") || "Commander";
+
+
+
+document.getElementById("playerName").innerHTML = name;
+
+
+document.getElementById("score").innerHTML = score + " / 5";
+
+
+
+let title = "";
+
+let message = "";
+
+
+
+switch(score){
+
+
+case 5:
+
+title = "🏆 AI Operations Champion";
+
+message = "Outstanding! Every operational decision was spot on.";
+
+break;
+
+
+
+case 4:
+
+title = "🥇 AI Operations Strategist";
+
+message = "Excellent judgement. You successfully balanced AI and leadership.";
+
+break;
+
+
+
+case 3:
+
+title = "🥈 AI Collaborator";
+
+message = "Good work! A few more missions and you'll master AI-driven operations.";
+
+break;
+
+
+
+case 2:
+
+title = "🌱 Future AI Leader";
+
+message = "Nice start. Keep exploring AI-powered operational decisions.";
+
+break;
+
+
+
+default:
+
+title = "🔄 Mission Incomplete";
+
+message = "Give it another try and unlock your certificate.";
+
+}
+
+
+
+
+
+document.getElementById("title").innerHTML = title;
+
+
+document.getElementById("message").innerHTML = message;
+
+
+
+
+
+
+// PLAY AGAIN
+
+
+document.getElementById("playAgainBtn").onclick = function(){
+
+
+localStorage.setItem("score",0);
+
+localStorage.setItem("currentQuestion",0);
+
+
+window.location.href="../index.html";
+
+
+};
+
+
+// CERTIFICATE CONTROL
+
+
+const certificateBtn = document.getElementById("certificateBtn");
+
+
+
+if(score >= 4){
+
+
+certificateBtn.style.display = "inline-block";
+
+
+
+certificateBtn.onclick = function(){
+
+
+downloadCertificate();
+
+
+};
+
+
+
+}
+
+else{
+
+
+certificateBtn.style.display = "none";
+
+
+
+const msg = document.createElement("p");
+
+
+
+msg.innerHTML =
+
+"🔒 Score 4/5 or higher required to unlock your AI Operations Certificate.";
+
+
+
+msg.style.color = "#facc15";
+
+msg.style.fontSize = "18px";
+
+msg.style.fontWeight = "600";
+
+msg.style.marginTop = "20px";
+
+
+
+document.getElementById("certificateArea").appendChild(msg);
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+
+<script src="../js/certificate.js"></script>
+
+
+
+</body>
+
+
+</html>
