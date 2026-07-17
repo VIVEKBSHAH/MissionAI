@@ -23,119 +23,159 @@ function downloadCertificate() {
     const div = document.createElement("div");
 
     div.style.width = "1200px";
-    div.style.background = "#ffffff";
-    div.style.color = "#1f2937";
-    div.style.fontFamily = "Arial, sans-serif";
-    div.style.textAlign = "center";
-    div.style.border = "10px solid #1f6feb";
+    div.style.padding = "45px";
     div.style.boxSizing = "border-box";
-    div.style.padding = "40px";
+    div.style.background = "linear-gradient(135deg,#071320,#10253f)";
+    div.style.border = "6px solid #FFD54A";
+    div.style.borderRadius = "16px";
+    div.style.fontFamily = "'Poppins', Arial, sans-serif";
+    div.style.color = "white";
+    div.style.textAlign = "center";
 
     div.innerHTML = `
 
 <div style="
-border:2px solid #d1d5db;
+border:2px solid rgba(255,255,255,.18);
+border-radius:12px;
 padding:45px;
 box-sizing:border-box;
 ">
 
-<h1 style="
-font-size:58px;
-letter-spacing:8px;
-margin:0;
-color:#1f6feb;
+<div style="
+font-size:56px;
 font-weight:700;
+letter-spacing:8px;
+color:#38bdf8;
 ">
 MISSION AI
-</h1>
+</div>
 
-<h2 style="
-font-size:38px;
-margin:25px 0 45px;
-color:#111827;
-font-weight:700;
+<div style="
+font-size:30px;
+margin-top:15px;
+font-weight:600;
+letter-spacing:2px;
 ">
 CERTIFICATE OF ACHIEVEMENT
-</h2>
+</div>
 
 <p style="
-font-size:22px;
-margin:0;
-color:#4b5563;
+margin-top:45px;
+font-size:21px;
+color:#cbd5e1;
 ">
 This certificate is proudly presented to
 </p>
 
-<h1 style="
-font-size:60px;
-margin:22px 0;
-color:#111827;
+<div style="
+font-size:56px;
 font-weight:700;
+margin:18px 0;
 line-height:1.2;
 word-break:break-word;
+color:#ffffff;
 ">
 ${player}
-</h1>
+</div>
 
 <p style="
-font-size:22px;
-color:#4b5563;
-margin:0;
+font-size:20px;
+color:#cbd5e1;
+margin-bottom:10px;
 ">
 for successfully completing
 </p>
 
-<h2 style="
-font-size:34px;
-color:#1f6feb;
-margin:18px 0 40px;
+<div style="
+font-size:30px;
+font-weight:600;
+color:#38bdf8;
+margin-bottom:40px;
 ">
 Operations Driven by AI
-</h2>
+</div>
 
 <div style="
 display:flex;
-justify-content:space-around;
-align-items:flex-start;
-margin:40px 0;
-font-size:24px;
+justify-content:space-evenly;
+margin:35px 0 45px;
 ">
 
 <div>
-<div style="font-weight:bold;">Score</div>
-<div style="margin-top:10px;font-size:42px;color:#1f6feb;">
+<div style="
+font-size:20px;
+color:#94a3b8;
+">
+Score
+</div>
+
+<div style="
+font-size:42px;
+font-weight:700;
+color:#FFD54A;
+margin-top:10px;
+">
 ${score}/5
 </div>
+
 </div>
 
 <div>
-<div style="font-weight:bold;">Achievement</div>
-<div style="margin-top:10px;font-size:24px;line-height:1.4;">
+
+<div style="
+font-size:20px;
+color:#94a3b8;
+">
+Achievement
+</div>
+
+<div style="
+font-size:24px;
+font-weight:600;
+margin-top:12px;
+color:#ffffff;
+max-width:320px;
+line-height:1.4;
+">
 ${title}
 </div>
+
 </div>
 
 </div>
 
 <hr style="
 border:none;
-border-top:2px solid #d1d5db;
-margin:45px 0 30px;
+border-top:1px solid rgba(255,255,255,.2);
+margin:40px 0;
 ">
 
 <div style="
-font-size:20px;
-color:#4b5563;
-margin-bottom:12px;
+display:flex;
+justify-content:space-between;
+font-size:18px;
+color:#cbd5e1;
 ">
-Issued Date: ${date}
+
+<div>
+<b>Issued:</b><br>
+${date}
+</div>
+
+<div>
+<b>Presented By:</b><br>
+Mission AI Team
+</div>
+
 </div>
 
 <div style="
-font-size:20px;
-color:#4b5563;
+margin-top:40px;
+font-size:18px;
+color:#38bdf8;
+font-weight:600;
 ">
-Presented by: Mission AI Team
+🏆 Excellence in AI-Powered Operations
 </div>
 
 </div>
@@ -147,15 +187,12 @@ Presented by: Mission AI Team
     html2canvas(div, {
         scale: 2,
         useCORS: true,
-        backgroundColor: "#ffffff"
+        backgroundColor: null
     }).then(canvas => {
 
         const link = document.createElement("a");
-
         link.download = "MissionAI_Certificate.png";
-
         link.href = canvas.toDataURL("image/png");
-
         link.click();
 
         div.remove();
